@@ -1,0 +1,30 @@
+/*
+Source code for the input-output system library for the DanScript Programming Language
+This file should be pre-compiled in the language for the execution engine
+The DanScript Programming Language Developement
+Written entirely by Daniel Sadrulah
+9/24/2023
+*/
+
+include cpptools;
+include ctools;
+include &danast;
+
+abstract {
+	void :print(string s);
+	void :println(string s);
+}
+
+void :construct() {
+	danast.keyPrase("iosys.dan", 13);
+	danast.allow(cpptools.permissions());
+	danast.preload(ctools.extract("c/libs/stdio.h")); // Too lazy to write my own print stream lmao, besides it wouldn't be any where as good as stdio
+}
+
+void :print(string s) {
+	danast.print(s);
+}
+
+void :println(string s) {
+	danast.println(s);
+}
